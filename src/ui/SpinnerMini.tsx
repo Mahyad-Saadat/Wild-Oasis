@@ -3,7 +3,7 @@ import { BiLoaderAlt } from "react-icons/bi";
 
 const rotate = keyframes`
   to {
-    transform: rotate(1turn)
+    transform: rotate(1turn);
   }
 `;
 

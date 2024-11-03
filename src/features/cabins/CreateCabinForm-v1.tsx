@@ -8,11 +8,22 @@ import FileInput from "../../ui/FileInput";
 import Textarea from "../../ui/Textarea";
 import FormRow from "../../ui/FormRow";
 
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { createCabin } from "../../services/apiCabins";
 
+// Define the type for the form data
+interface CabinFormData {
+  name: string;
+  maxCapacity: number;
+  regularPrice: number;
+  discount: number;
+  description: string;
+  image: FileList; // Use FileList for the file input
+}
+
 function CreateCabinForm() {
-  const { register, handleSubmit, reset, getValues, formState } = useForm();
+  const { register, handleSubmit, reset, getValues, formState } =
+    useForm<CabinFormData>();
   const { errors } = formState;
 
   const queryClient = useQueryClient();
@@ -24,16 +35,17 @@ function CreateCabinForm() {
       queryClient.invalidateQueries({ queryKey: ["cabins"] });
       reset();
     },
-    onError: (err) => toast.error(err.message),
+    onError: (err: any) => toast.error(err.message), // Specify the type for the error
   });
 
-  function onSubmit(data) {
+  const onSubmit: SubmitHandler<CabinFormData> = (data) => {
     mutate({ ...data, image: data.image[0] });
-  }
+  };
 
-  function onError(errors) {
+  const onError = (errors: any) => {
+    // Handle errors if needed
     // console.log(errors);
-  }
+  };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit, onError)}>
@@ -72,7 +84,7 @@ function CreateCabinForm() {
             required: "This field is required",
             min: {
               value: 1,
-              message: "Capacity should be at least 1",
+              message: "Price should be at least 1",
             },
           })}
         />
@@ -99,7 +111,6 @@ function CreateCabinForm() {
         error={errors?.description?.message}
       >
         <Textarea
-          type="number"
           id="description"
           defaultValue=""
           disabled={isCreating}
@@ -120,7 +131,6 @@ function CreateCabinForm() {
       </FormRow>
 
       <FormRow>
-        {/* type is an HTML attribute! */}
         <Button variation="secondary" type="reset">
           Cancel
         </Button>

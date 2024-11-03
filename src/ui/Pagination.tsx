@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface PaginationButtonProps {
+  active?: boolean; // Define the active prop for the PaginationButton
+}
+
 const StyledPagination = styled.div`
   width: 100%;
   display: flex;
@@ -21,10 +25,10 @@ const Buttons = styled.div`
   gap: 0.6rem;
 `;
 
-const PaginationButton = styled.button`
+const PaginationButton = styled.button<PaginationButtonProps>`
   background-color: ${(props) =>
-    props.active ? " var(--color-brand-600)" : "var(--color-grey-50)"};
-  color: ${(props) => (props.active ? " var(--color-brand-50)" : "inherit")};
+    props.active ? "var(--color-brand-600)" : "var(--color-grey-50)"};
+  color: ${(props) => (props.active ? "var(--color-brand-50)" : "inherit")};
   border: none;
   border-radius: var(--border-radius-sm);
   font-weight: 500;
@@ -55,3 +59,5 @@ const PaginationButton = styled.button`
     color: var(--color-brand-50);
   }
 `;
+
+export { StyledPagination, P, Buttons, PaginationButton };

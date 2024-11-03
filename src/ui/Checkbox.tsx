@@ -18,14 +18,27 @@ const StyledCheckbox = styled.div`
 
   & label {
     flex: 1;
-
     display: flex;
     align-items: center;
     gap: 0.8rem;
   }
 `;
 
-function Checkbox({ checked, onChange, disabled = false, id, children }) {
+interface CheckboxProps {
+  checked: boolean;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
+  id: string;
+  children: React.ReactNode;
+}
+
+function Checkbox({
+  checked,
+  onChange,
+  disabled = false,
+  id,
+  children,
+}: CheckboxProps) {
   return (
     <StyledCheckbox>
       <input
