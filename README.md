@@ -1,50 +1,28 @@
-# React + TypeScript + Vite
+# Wild Oasis Hotel Management Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-16.13.1-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.4.2-blue.svg)
+![Styled Components](https://img.shields.io/badge/Styled%20Components-5.3.0-blue.svg)
+![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-7.15.4-blue.svg)
+![React Query](https://img.shields.io/badge/React%20Query-3.34.0-blue.svg)
+![Supabase](https://img.shields.io/badge/Supabase-1.23.0-blue.svg)
 
-Currently, two official plugins are available:
+## Welcome to The Wild Oasis Hotel Management Application!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The Wild Oasis is a user-friendly hotel management application designed to streamline hotel operations. Key features include:
 
-## Expanding the ESLint configuration
+- Sales statistics
+- Cabin management
+- User management
+- Booking management
+- Various customization options
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This application integrates authentication, database storage, and dark mode features, and so much more!
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Technologies Used
+- React
+- TypeScript
+- React Hook Form
+- React Query
+- Styled Components
+- Supabase
